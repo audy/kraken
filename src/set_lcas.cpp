@@ -212,8 +212,6 @@ void parse_command_line(int argc, char **argv) {
         if (sig <= 0)
           errx(EX_USAGE, "can't use nonpositive thread count");
         #ifdef _OPENMP
-        if (sig > omp_get_num_procs())
-          errx(EX_USAGE, "thread count exceeds number of processors");
         Num_threads = sig;
         omp_set_num_threads(Num_threads);
         #endif
